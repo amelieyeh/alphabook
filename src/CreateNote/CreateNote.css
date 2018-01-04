@@ -1,0 +1,59 @@
+/* CreateNote */
+.create {
+  padding: 30px 20px;
+  border: 3px solid #eee;
+  margin-bottom: 20px;
+}
+
+.create__input {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #4a4a4a;
+  border-radius: 4px;
+  width: 300px;
+  margin-right: 20px;
+  border: 1px solid #eee;
+}
+
+.create__select {
+  border: 1px solid #eee;
+	width: 100px;
+  margin-right: 20px;
+	border-radius: 3px;
+  display: inline-block;
+  padding: 10px 4px;
+	background-color: #fff;
+}
+
+.create__select select {
+	width: 100%;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	font-size: 18px;
+	color: #4a4a4a;
+}
+
+.create__select select:focus {
+  outline: none;
+}
+
+.create__label {
+  display: block;
+  color: #4a4a4a;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #c58502;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 100px;
+  text-align: center;
+  color: #fff;
+  border: 0;
+  outline: none;
+}

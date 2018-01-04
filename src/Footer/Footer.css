@@ -1,0 +1,10 @@
+/* Footer */
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #424242;
+  text-align: center;
+  font-size: 14px;
+  font-family: sans-serif;
+  border-top: 2px solid #eee;
+}

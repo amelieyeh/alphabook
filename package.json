@@ -1,6 +1,7 @@
 {
-  "name": "notebook",
+  "name": "Alphabook",
   "version": "0.1.0",
+  "author": "Amelie Yeh",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",

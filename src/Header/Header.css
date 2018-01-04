@@ -1,0 +1,38 @@
+/* Header */
+header {
+  padding: 10px 10%;
+  border-bottom: 1px solid #eee;
+	overflow: hidden;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo__img {
+  width: 60px;
+  height: auto;
+}
+
+.user {
+  float: right;
+}
+
+.user__avatar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  margin-right: 15px;
+}
+
+.user__func {
+  display: inline-block;
+}
+
+.user__name {
+  font-size: 18px;
+  color: #4a4a4a;
+}
