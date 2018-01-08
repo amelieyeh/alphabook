@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import base from './base';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import CreateNote from './CreateNote/CreateNote';
+import CreateNotebookForm from './CreateNotebookForm/CreateNotebookForm';
 import Notebook from './Notebook/Notebook';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
+
+    this.addNotebook = this.addNotebook.bind(this);
 
     this.state = {
       notebooks: {},
@@ -35,12 +37,34 @@ class App extends Component {
     base.database().ref().off(this.ref);
   }
 
+  componentWillReceiveProps(nextProps) {}
+
+  addNotebook(notebook) {
+    // update state
+    const notebooks = {...this.state.notebooks};
+    // add new notebook
+    const timestamp = Date.now();
+    /*notebooks[`notebook-${timestamp}`] = notebook;*/
+
+    // write data to firebase
+    const notebookData = {
+      title: notebook.title,
+      language: notebook.language,
+      created_at: notebook.created_at
+    }
+    const update = {};
+    update[`notebook-${timestamp}`] = notebookData;
+
+    this.setState({ notebooks });
+    return base.database().ref(`user1/notebooks`).update(update);
+  }
+
   render() {
     return (
       <div className="app">
         <Header/>
 	      <div className="container">
-  	      <CreateNote/>
+  	      <CreateNotebookForm addNotebook={this.addNotebook}/>
           <ul className="notebooks">
             {
               Object

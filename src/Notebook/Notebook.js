@@ -7,9 +7,9 @@ class Notebook extends Component {
 
     return (
       <li className="notebook">
-        <a href="#" className="notebook__link">{ notebook.name }</a>
+        <a href="#" className="notebook__link">{ notebook.title }</a>
         <div className="notebook__func">
-          <span>{ notebook.item } items | { notebook.created_at } created</span>
+          <span>{ notebook.num } items | { notebook.created_at } created</span>
           <a href="#" className="notebook__link notebook__link--edit">Edit</a>
         </div>
       </li>
