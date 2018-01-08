@@ -1,10 +1,11 @@
 import React, { Component } from'react';
+import './Notebook.css';
 
 class Notebook extends Component {
   render() {
-    const notebook = this.props.notebook;
+    const { notebook } = this.props;
 
-    return(
+    return (
       <li className="notebook">
         <a href="#" className="notebook__link">{ notebook.name }</a>
         <div className="notebook__func">
