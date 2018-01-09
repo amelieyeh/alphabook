@@ -6,17 +6,12 @@ class Notebook extends Component {
   constructor() {
     super();
 
-    this.updateNotebook = this.updateNotebook.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
 
     this.state = {
       isOpen: false
     }
-  }
-
-  updateNotebook() {
-    this.setState({ isOpen: false });
   }
 
   open(e) {
@@ -46,11 +41,8 @@ class Notebook extends Component {
         </div>
         { this.state.isOpen?
         <UpdateNotebookForm
-          unpdateNotebook={this.updateNotebook}
+          updateNotebook={this.props.updateNotebook}
           notebook={ notebook }
-          open={this.open}
-          close={this.close}
-          isOpen={this.state.isOpen}
         /> : null }
       </li>
     );

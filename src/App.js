@@ -11,9 +11,11 @@ class App extends Component {
     super();
 
     this.addNotebook = this.addNotebook.bind(this);
+    this.updateNotebook = this.updateNotebook.bind(this);
 
     this.state = {
       notebooks: {},
+      notebook: {},
       words: {}
     }
   }
@@ -48,6 +50,15 @@ class App extends Component {
     this.setState({ notebooks });
   }
 
+  updateNotebook(key, updatedNotebook) {
+    const notebooks = {...this.state.notebooks};
+    notebooks[key] = updatedNotebook;
+    this.setState({
+      notebook: updatedNotebook,
+      isOpen: false
+    });
+  }
+
   render() {
     return (
       <div className="app">
@@ -58,7 +69,7 @@ class App extends Component {
             {
               Object
                 .keys(this.state.notebooks)
-                .map(key => <Notebook key={key} notebook={this.state.notebooks[key]} />)
+                .map(key => <Notebook key={key} notebook={this.state.notebooks[key]} updateNotebook={this.updateNotebook} />)
             }
           </ul>
      		</div>
