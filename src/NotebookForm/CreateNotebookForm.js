@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CreateNotebookForm.css';
+import './NotebookForm.css';
 
 class CreateNotebookForm extends Component {
   createNotebook(e) {
@@ -21,17 +21,17 @@ class CreateNotebookForm extends Component {
       <form
         ref={(form) => this.notebookForm = form}
         onSubmit={(e) => this.createNotebook(e)}
-        className="create create--note"
+        className="noteForm noteForm--create"
       >
-        <label htmlFor="create_note" className="create__label">Create New Notebook</label>
+        <label htmlFor="create_note" className="noteForm__label">Create New Notebook</label>
         <input
           ref={(input) => this.title = input}
           type="text"
           id="create_note"
           placeholder="Notebook title"
-          className="create__input"
+          className="noteForm__input"
         />
-        <div className="create__select">
+        <div className="noteForm__select">
           <select
             ref={(input) => this.language = input}
           >
@@ -39,7 +39,7 @@ class CreateNotebookForm extends Component {
             <option value="french">French</option>
           </select>
         </div>
-        <button type="submit" className="button">Create</button>
+        <button type="submit" className="noteForm__button">Create</button>
       </form>
     );
   }

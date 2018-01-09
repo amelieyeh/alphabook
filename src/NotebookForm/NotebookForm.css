@@ -1,0 +1,94 @@
+/* Notebook Form */
+.noteForm {
+  padding: 30px 20px;
+  border: 3px solid #eee;
+  margin-bottom: 20px;
+}
+
+.noteForm--update {
+  background-color: #fff8ec;
+  border: none;
+  margin: 10px auto;
+  padding: 15px;
+}
+
+.noteForm__input {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #4a4a4a;
+  border-radius: 4px;
+  width: 300px;
+  height: 45px;
+  margin-right: 20px;
+  border: 1px solid #eee;
+}
+
+.noteForm__select {
+  border: 1px solid #eee;
+	width: 100px;
+  height: 45px;
+  margin-right: 20px;
+	border-radius: 4px;
+  display: inline-block;
+	background-color: #fff;
+  vertical-align: top;
+  position: relative;
+}
+
+.noteForm__select select {
+	width: 90%;
+  height: 100%;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	font-size: 18px;
+	color: #4a4a4a;
+  position: absolute;
+  top: 0;
+  left: 3%;
+}
+
+.noteForm__select select:hover {
+  cursor: pointer;
+}
+
+.noteForm__select select:focus {
+  outline: none;
+}
+
+.noteForm__label {
+  display: block;
+  color: #4a4a4a;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.noteForm__button {
+  border-radius: 4px;
+  background-color: #c58502;
+  font-size: 20px;
+  padding: 10px;
+  width: 100px;
+  height: 45px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.noteForm__button:hover {
+  cursor: pointer;
+}
+
+.noteForm__button--cancel {
+  background-color: #fff;
+  margin-right: 20px;
+  border-color: #c58502;
+  color: #c58502;
+}
+
+.noteForm__button--cancel:hover {
+  background-color: #c58502;
+  color: #fff;
+}

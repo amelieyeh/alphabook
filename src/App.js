@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import base from './base';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import CreateNotebookForm from './CreateNotebookForm/CreateNotebookForm';
+import CreateNotebookForm from './NotebookForm/CreateNotebookForm';
 import Notebook from './Notebook/Notebook';
 import './App.css';
 
