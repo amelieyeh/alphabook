@@ -9,7 +9,7 @@ class CreateNotebookForm extends Component {
     const notebook = {
       title: this.title.value,
       language: this.language.value,
-      created_at: Date.now(),
+      created_at: new Date().toISOString().substring(0, 10)
     }
 
     this.props.addNotebook(notebook);
