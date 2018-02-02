@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       notebooks: {},
       notebook: {},
-      words: {}
+      words: {},
     }
   }
 
@@ -50,16 +50,25 @@ class App extends Component {
     this.setState({ notebooks });
   }
 
-  updateNotebook(key, updatedNotebook) {
+  updateNotebook(notebookId, updatedNotebook) {
     const notebooks = {...this.state.notebooks};
-    notebooks[key] = updatedNotebook;
+    notebooks[notebookId] = updatedNotebook;
+    base.update(`user1/notebooks/${notebookId}`, {
+      data: {
+        title: updatedNotebook.title,
+        language: updatedNotebook.language
+      },
+    });
+
     this.setState({
-      notebook: updatedNotebook,
-      isOpen: false
+      notebooks: notebooks,
     });
   }
 
   render() {
+    // console.log("==========")
+    // console.log(this.state.notebooks)
+    // console.log("==========")
     return (
       <div className="app">
         <Header/>
@@ -69,7 +78,7 @@ class App extends Component {
             {
               Object
                 .keys(this.state.notebooks)
-                .map(key => <Notebook key={key} notebook={this.state.notebooks[key]} updateNotebook={this.updateNotebook} />)
+                .map(key => <Notebook key={key} notebookId={key} notebook={this.state.notebooks[key]} updateNotebook={this.updateNotebook} notebooks={this.state.notebooks}/>)
             }
           </ul>
      		</div>

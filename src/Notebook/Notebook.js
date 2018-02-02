@@ -31,6 +31,7 @@ class Notebook extends Component {
     return (
       <li className="notebook">
         <a href="#" className="notebook__link">{ notebook.title }</a>
+        <span></span>
         <div className="notebook__func">
           <span>{ notebook.num } items | { notebook.created_at } created</span>
           <a
@@ -39,10 +40,14 @@ class Notebook extends Component {
             className="notebook__link notebook__link--edit"
           >Edit</a>
         </div>
-        { this.state.isOpen?
+        { this.state.isOpen ?
         <UpdateNotebookForm
           updateNotebook={this.props.updateNotebook}
           notebook={ notebook }
+          notebooks={ this.props.notebooks }
+          notebookId={ this.props.notebookId }
+          open={ this.open }
+          close={ this.close }
         /> : null }
       </li>
     );

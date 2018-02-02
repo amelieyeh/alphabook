@@ -6,41 +6,39 @@ class UpdateNotebookForm extends Component {
     super();
 
     this.handleCancel = this.handleCancel.bind(this);
-    this.updateNotebook = this.updateNotebook.bind(this);
+    this.updatedNotebook = this.updatedNotebook.bind(this);
 
-    this.state = {
-      isClose: true
-    }
   }
 
   handleCancel() {
-    console.log('close')
-    this.setState({ isClose: false });
+    this.props.close();
   }
 
-  updateNotebook(e, key) {
+  updatedNotebook(e, notebookId) {
     e.preventDefault();
-    console.log('update Submit');
-    const notebook = this.props.notebook;
+    const notebook = this.props.notebooks[this.props.notebookId]
     const updatedNotebook = {
       ...notebook,
-      [e.target.name]: e.target.value
+      // [e.target.name]: e.target.value
+      title: e.target.title.value,
+      language: e.target.language.value
     }
-
-    this.props.updateNotebook(key, updatedNotebook);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isClose: true });
+    // const updatedNotebook = {
+    //   title: e.target.title.value,
+    //   language: e.target.language.value
+    // };
+    this.props.updateNotebook(notebookId, updatedNotebook);
+    this.props.close();
   }
 
   render() {
+    const notebookId = this.props.notebookId;
+
     return (
       <div>
-      { this.state.isClose?
       <form
         className="noteForm noteForm--update"
-        onSubmit={(e) => this.updateNotebook(e)}
+        onSubmit={(e) => this.updatedNotebook(e, notebookId)}
       >
         <input
           name="title"
@@ -63,7 +61,7 @@ class UpdateNotebookForm extends Component {
           className="noteForm__button noteForm__button--cancel"
         >Cancel</button>
         <button type="submit" className="noteForm__button">Save</button>
-      </form> : null }</div>
+      </form></div>
     );
   }
 }
