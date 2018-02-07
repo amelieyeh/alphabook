@@ -1,57 +1,42 @@
 import React, { Component } from 'react';
 import UpdateNotebookForm from '../NotebookForm/UpdateNotebookForm';
-import './Notebook.css';
+import { Link } from 'react-router-dom';
 
 class Notebook extends Component {
-  constructor() {
-    super();
 
-    this.open = this.open.bind(this);
-    this.close = this.close.bind(this);
+	createLoadingNode() {
+		return (
+			<div className="container loading">
+				<h1>Loading...</h1>
+			</div>
+		);
+	}
 
-    this.state = {
-      isOpen: false
-    }
-  }
+	render() {
+		const { notebooks, id } = this.props;
+		const notebook = notebooks[id];
 
-  open(e) {
-    e.preventDefault();
-    this.setState({ isOpen: true });
-    console.log('open')
-  }
+		const loadingNode = this.createLoadingNode();
+		if (!notebook) return loadingNode;
 
-  close() {
-    this.setState({ isOpen: false });
-    console.log('close')
-  }
-
-  render() {
-    const { notebook } = this.props;
-
-    return (
-      <li className="notebook">
-        <a href="#" className="notebook__link">{ notebook.title }</a>
-        <span></span>
-        <div className="notebook__func">
-          <span>{ notebook.num } items | { notebook.created_at } created</span>
-          <a
-            onClick={(e) => this.open(e)}
-            href="#"
-            className="notebook__link notebook__link--edit"
-          >Edit</a>
-        </div>
-        { this.state.isOpen ?
-        <UpdateNotebookForm
-          updateNotebook={this.props.updateNotebook}
-          notebook={ notebook }
-          notebooks={ this.props.notebooks }
-          notebookId={ this.props.notebookId }
-          open={ this.open }
-          close={ this.close }
-        /> : null }
-      </li>
-    );
-  }
+		return (
+			<div className="container notebook">
+				<ul className="breadcrumbs">
+					<li><Link to="/">Notebooks</Link></li>
+					<li>{ notebook.title }</li>
+				</ul>
+				<div className="nb__main">
+					<div className="nb__title-block">
+						<h1 className="nb__title">
+							{ notebook.title }
+							<span className="nb__language">{ notebook.language }</span>
+						</h1>
+					</div>
+					<div className="nb__funcs">Total: {"123"} items</div>
+				</div>
+			</div>
+		)
+	}
 }
 
 export default Notebook;
